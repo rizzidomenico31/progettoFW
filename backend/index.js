@@ -24,7 +24,11 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: true } // secure: true solo in HTTPS
+    cookie: {
+        secure: true,
+        sameSite: 'none',
+
+    } // secure: true solo in HTTPS
 }));
 
 app.use(passport.initialize());
