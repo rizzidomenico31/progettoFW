@@ -5,6 +5,7 @@ const nodemailer = require("nodemailer");
 const passportLocalMongoose = require('passport-local-mongoose');
 const passport = require("passport");
 const bcrypt = require("bcrypt")
+const FRONTEND_URL = process.env.FRONTEND_URL
 
 const trasporter = nodemailer.createTransport({  //inizializzazione del trasporter per inviare le mail
     service: 'gmail',
@@ -67,7 +68,7 @@ module.exports = {
         user.resetPasswordExpires = Date.now() + 3600000; //durata 1h
         await user.save() //salva
 
-        const resetLink = `http://localhost:5173/change-password/${token}`;  //il link che riceverà l'utente rimanda ad una pagina frontend di react
+        const resetLink = `${FRONTEND_URL}/change-password/${token}`;  //il link che riceverà l'utente rimanda ad una pagina frontend di react
         const mailOptions = { //settaggio di tutte le info per la mail
             from: process.env.GMAIL_USER,
             to: req.body.email,
