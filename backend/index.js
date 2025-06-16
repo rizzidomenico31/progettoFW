@@ -16,7 +16,7 @@ const tourRouter = require('./router/tourRoute');
 mongoose.connect(process.env.MONGO_URI)
 
 app.use(cors({
-    origin: 'http://localhost:5173', // URL frontend
+    origin: process.env.FRONTEND_URL, // URL frontend
     credentials: true //essenziale per usare sessione con cookie
 }));
 app.use(express.json());
