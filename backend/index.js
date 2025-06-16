@@ -20,6 +20,9 @@ app.use(cors({
     credentials: true //essenziale per usare sessione con cookie
 }));
 app.use(express.json());
+
+app.set('trust proxy', 1);
+
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
