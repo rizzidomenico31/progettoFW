@@ -1,11 +1,13 @@
 import CardTour from './CardTour.jsx'
 import React, {useEffect, useState} from "react";
 import axios from 'axios'
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Tours(){
     const [tours, setTours] = useState([]);
     const [message, setMessage] = useState();
     useEffect( ()=>{
-        axios.get('http://localhost:5001/tours/alltours')
+        axios.get(`${API_URL}/tours/alltours`)
             .then(res => {
                 if (res.status === 200){
                     setTours(res.data);

@@ -12,8 +12,7 @@ import {
 import {useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {UserContext} from "./UserContext";
-
-
+const API_URL = import.meta.env.VITE_API_URL;
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -30,7 +29,7 @@ function Login() {
             password: password,
         }
         try {
-            const response = await fetch("http://localhost:5001/auth/login", {
+            const response = await fetch(`${API_URL}/auth/login`, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 credentials: "include",
@@ -40,7 +39,7 @@ function Login() {
 
             const data = await response.json()
             if (response.ok){
-                const userRes = await fetch('http://localhost:5001/auth/user', {
+                const userRes = await fetch(`${API_URL}/auth/user`, {
                     credentials: 'include'
                 });
                 const data2 = await userRes.json();

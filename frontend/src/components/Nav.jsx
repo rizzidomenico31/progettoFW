@@ -7,6 +7,7 @@ import {useNavigate} from "react-router-dom";
 import {useContext} from "react";
 import {UserContext} from "./UserContext.jsx";
 import {MDBBtn} from "mdb-react-ui-kit";
+const API_URL = import.meta.env.VITE_API_URL;
 
 
 function MyNavBar() {
@@ -16,7 +17,7 @@ function MyNavBar() {
 
     const  handelLogOut = async () => {
         try {
-            const res = await fetch('http://localhost:5001/auth/logout', {
+            const res = await fetch(`${API_URL}/auth/logout`, {
                 method: 'GET',
                 credentials: 'include',
             });

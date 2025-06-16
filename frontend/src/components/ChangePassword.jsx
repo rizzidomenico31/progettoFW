@@ -14,6 +14,8 @@ import axios from "axios"
 import {useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {UserContext} from "./UserContext";
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 
 
@@ -28,7 +30,7 @@ function ChangePassword() {
     const handleSubmit =async (e) => {
         e.preventDefault()
         try{
-            const res = await axios.post(`http://localhost:5001/auth/reset-password/${token}`, {password});
+            const res = await axios.post(`${API_URL}/auth/reset-password/${token}`, {password});
 
             if (res.status === 200) {
                 console.log(res.status)

@@ -10,6 +10,8 @@ import {
 }
     from 'mdb-react-ui-kit';
 import {useNavigate} from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 function Register() {
     const [email, setEmail] = useState('');
@@ -23,7 +25,7 @@ function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const response = await fetch('http://localhost:5001/auth/adduser', {
+            const response = await fetch(`${API_URL}/auth/adduser`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
