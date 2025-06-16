@@ -11,7 +11,7 @@ import Home from "./components/Home.jsx";
 import Register from "./components/Register.jsx";
 import ResetPassword from "./components/Reset-Password.jsx";
 import ChangePassword from "./components/ChangePassword.jsx";
-import {UserProvider} from "./components/UserCOntext";
+import {UserProvider} from "./components/UserContext.jsx";
 import Tours from "./components/Tours.jsx";
 
 function App() {
