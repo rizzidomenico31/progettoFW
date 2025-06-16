@@ -1,0 +1,21 @@
+.mt-6{
+  margin-top: 6rem;
+}
+
+.carousel-img {
+  height: 550px; /* o la dimensione che preferisci */
+  object-fit: cover;
+}
+
+.form-credentials {
+  color: green;
+}
+.card-container{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  row-gap: 1rem;
+  justify-content: center;
+}
