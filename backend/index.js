@@ -18,14 +18,7 @@ const axios = require("axios");
 //connessione al DB mongo su Atlas
 mongoose.connect(process.env.MONGO_URI)
 
-const server = http.createServer(app);
-const io = new Server(server , {
-    cors: {
-        origin: process.env.FRONTEND_URL,
-        methods: ["GET", "POST"],
-        credentials: true,
-    }
-});
+
 
 app.use(cors({
     origin: process.env.FRONTEND_URL, // URL frontend
@@ -46,6 +39,14 @@ app.use(session({
     } // secure: true solo in HTTPS
 }));
 
+const server = http.createServer(app);
+const io = new Server(server , {
+    cors: {
+        origin: process.env.FRONTEND_URL,
+        methods: ["GET", "POST"],
+        credentials: true,
+    }
+});
 //prendo la temperatura da api di terze parti
 const getTemperatura = async (req, res) => {
     try {
