@@ -1,21 +1,41 @@
-.mt-6{
-  margin-top: 6rem;
-}
+/*CSS che gestisce lo stile di alcune funzionalità dell'applicazione*/
 
 .carousel-img {
-  height: 550px; /* o la dimensione che preferisci */
+  height: 600px;
   object-fit: cover;
 }
 
-.form-credentials {
-  color: green;
-}
+/*Card Generate in automatica del DB rese responsive*/
 .card-container{
   margin-top: 100px;
-  display: flex;
+  display: flex; /*flex leyout*/
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
   row-gap: 1rem;
   justify-content: center;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+/*comportamento su SmartPhone*/
+.card-item {
+  flex: 1 1 100%;   /*disposizione di una card per riga al 100% della larghezza*/
+  max-width: 100%;
+}
+
+/*comportamento su Tablet*/
+@media (min-width: 576px) {
+  .card-item {
+    flex: 1 1 calc(50% - 1rem); /* disposizione di 2 card per riga al 50% della larghezza */
+    max-width: calc(50% - 1rem);
+  }
+}
+
+/*comportamento su Desktop*/
+@media (min-width: 768px) {
+  .card-item {
+    flex: 1 1 calc(33.333% - 1rem); /* disposizione di 3 card per riga */
+    max-width: calc(33.333% - 1rem);
+  }
 }

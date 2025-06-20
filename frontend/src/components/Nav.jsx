@@ -8,9 +8,10 @@ import {useContext} from "react";
 import {UserContext} from "./UserContext.jsx";
 import {MDBBtn} from "mdb-react-ui-kit";
 const API_URL = import.meta.env.VITE_API_URL;
+import Notification from "./Notification.jsx";
 
 
-function MyNavBar() {
+function MyNavBar({notifications}) {
     const navigate = useNavigate();
     const {user , setUser} = useContext(UserContext);
 
@@ -37,6 +38,8 @@ function MyNavBar() {
                     <Nav className="mx-auto">
                         <Nav.Link onClick={() => navigate("/")}>Home</Nav.Link>
                         <Nav.Link href="/allTours">Tour</Nav.Link>
+                        <Nav.Link><Notification notifications={notifications}/></Nav.Link>
+
                         {user ? (
                         <NavDropdown title="Account" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Profilo</NavDropdown.Item>

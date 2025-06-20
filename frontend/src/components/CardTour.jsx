@@ -14,7 +14,7 @@ function CardTour({name , description , imageUrl}) {
        alert('Attenzione Funzionalità in fase di sviluppo!');
    }
     return (
-        <MDBCard className="w-25 card-item ">
+        <MDBCard >
             <MDBCardImage src={imageUrl} position='top' alt={name} className="image-card" />
             <MDBCardBody>
                 <MDBCardTitle>{name}</MDBCardTitle>
