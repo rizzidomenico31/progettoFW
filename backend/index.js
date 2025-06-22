@@ -19,7 +19,6 @@ const axios = require("axios");
 mongoose.connect(process.env.MONGO_URI)
 
 
-
 app.use(cors({
     origin: process.env.FRONTEND_URL, // URL frontend
     credentials: true //essenziale per usare sessione con cookie
@@ -34,9 +33,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: true,
+        secure: false,
         sameSite: 'none',
-    } // secure: true solo in HTTPS
+    }
 }));
 
 const server = http.createServer(app);

@@ -1,6 +1,5 @@
 import {MDBBtn, MDBCard, MDBCardBody, MDBCol, MDBContainer, MDBInput, MDBRow, MDBTextArea} from "mdb-react-ui-kit";
-import {useState , useEffect} from "react";
-import {io} from "socket.io-client";
+import {useState } from "react";
 const API_URL = import.meta.env.VITE_API_URL;
 
 function AddTour(){
@@ -8,13 +7,7 @@ function AddTour(){
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [imageUrl, setImageUrl] = useState("");
-    const socket = io(API_URL , {withCredentials: true});
 
-    useEffect(() => {
-        socket.on('tour-added' , (data) => {
-            alert("Tour aggiunto con Successo! - " + data.name);
-        })
-    } , [])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
